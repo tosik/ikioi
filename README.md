@@ -17,7 +17,7 @@ Or install it yourself as:
 ## Usage
 
 ```
-checker = Ikioi::Checker.new('keyword')
+checker = Ikioi::Checker.new('keyword', 'board_name')
 checker.fetch
 ```
 

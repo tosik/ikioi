@@ -4,12 +4,11 @@ require "open-uri"
 module Ikioi
   class Checker
 
-    def initialize(keyword)
-      @keyword = keyword
-    end
+    attr_reader :keyword, :board_name
 
-    def keyword
-      @keyword
+    def initialize(keyword, board_name)
+      @keyword = keyword
+      @board_name = board_name
     end
 
     def fetch
@@ -23,7 +22,7 @@ module Ikioi
     end
 
     def fetch_jsonp
-      open('http://2ch-ranking.net/ranking.json?board=gameswf').read
+      open("http://2ch-ranking.net/ranking.json?board=#{board_name}").read
     end
 
   end
