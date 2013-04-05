@@ -1,4 +1,4 @@
-require "active_support"
+require "json"
 require "open-uri"
 
 module Ikioi
@@ -18,7 +18,7 @@ module Ikioi
     end
 
     def parse(jsonp)
-      ActiveSupport::JSON.decode(jsonp.sub('callback(', '').sub(/\);$/, ''))
+      JSON.parse(jsonp.sub('callback(', '').sub(/\);$/, ''))
     end
 
     def fetch_jsonp
