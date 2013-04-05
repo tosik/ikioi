@@ -14,7 +14,9 @@ module Ikioi
     def fetch
       @last_ikioi = parse(fetch_jsonp).find {|item| item['title'].include?(keyword) }['ikioi']
     rescue OpenURI::HTTPError => e
-      @last_ikioi
+      @last_ikioi || 0
+    rescue
+      0
     end
 
     def parse(jsonp)
